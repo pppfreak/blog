@@ -1,13 +1,11 @@
 package com.assignment.blog.controller;
 
 import com.assignment.blog.entity.Comment;
-import com.assignment.blog.entity.Post;
 import com.assignment.blog.entity.User;
 import com.assignment.blog.model.PostForm;
 import com.assignment.blog.response.PostResponse;
 import com.assignment.blog.service.PostService;
 import com.assignment.blog.service.UserService;
-import com.sun.xml.bind.v2.TODO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

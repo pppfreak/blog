@@ -33,8 +33,8 @@ public class PostController {
         return postService.getPostByTitle(title);
     }
 
-    @PostMapping("/{userId}")
-    public PostResponse createPost(@RequestBody PostForm post, @PathVariable Integer userId){
-        return postService.savePost(post ,userId);
-    }
+//    @PostMapping("/{userId}")
+//    public PostResponse createPost(@RequestBody PostForm post, @PathVariable Integer userId){
+//        return postService.savePost(post ,userId);
+//    }
 }
