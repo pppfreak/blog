@@ -3,6 +3,7 @@ package com.assignment.blog.controller;
 import com.assignment.blog.entity.Comment;
 import com.assignment.blog.entity.User;
 import com.assignment.blog.model.PostForm;
+import com.assignment.blog.model.UserLogInForm;
 import com.assignment.blog.response.PostResponse;
 import com.assignment.blog.service.PostService;
 import com.assignment.blog.service.UserService;
@@ -13,6 +14,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/users")
+@CrossOrigin("*")
 public class UserController {
 
     private final UserService userService;
@@ -22,6 +24,10 @@ public class UserController {
         this.userService = userService;
         this.postService = postService;
     }
+    @PostMapping
+    public User createUser(@RequestBody User user) throws Exception {
+        return userService.signUpUser(user);
+    }
 
     // TODO-- 1. User can create new posts
     @PostMapping("/{userId}")
@@ -30,9 +36,9 @@ public class UserController {
     }
 
     // TODO-- 2. User can view posts of other users
-    @GetMapping("/viewPostsOfOthers/{userId}")
-    public List<PostResponse> viewOthersPosts(@PathVariable Integer userId){
-        return userService.viewOthersPosts(userId);
+    @GetMapping("/viewOtherPosts")
+    public List<PostResponse> viewOthersPosts(){
+        return userService.viewOthersPosts();
     }
 
     // TODO-- 3.  User can comment  on posts of other posts
@@ -65,10 +71,7 @@ public class UserController {
         return userService.getUserById(id);
     }
 
-    @PostMapping
-    public User createUser(@RequestBody User user){
-        return userService.saveUser(user);
-    }
+
 
     @GetMapping("/{title}")
     public PostResponse getPostById(@PathVariable String title){

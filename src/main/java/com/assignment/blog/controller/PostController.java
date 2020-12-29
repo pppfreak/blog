@@ -13,6 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/posts")
+@CrossOrigin("*")
 public class PostController {
 
     private final PostService postService;
@@ -23,7 +24,7 @@ public class PostController {
     }
 
 
-    @GetMapping
+    @GetMapping("/getAllPost")
     public List<Post> getAllPosts(){
         return postService.getAllPost();
     }

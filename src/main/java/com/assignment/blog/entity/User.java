@@ -17,7 +17,8 @@ User implements Serializable {
     @Id
     @GeneratedValue
     private Integer id;
-    private String name;
+    private String userName;
+    private String password;
 
     @JsonIgnore
     @OneToMany(mappedBy = "user")
@@ -37,6 +38,14 @@ User implements Serializable {
 
 
     public User() {
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public Set<Post> getUpvote() {
@@ -71,11 +80,11 @@ User implements Serializable {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 }
